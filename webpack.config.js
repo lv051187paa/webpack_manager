@@ -26,10 +26,9 @@ let config = devMode => ({
         test: /\.html$/,
         use: [
           {
-            loader: "file-loader",
+            loader: ["html-loader"],
             options: {
-              name: "[name].[ext]",
-              outputPath: "/"
+              minimize: !devMode
             }
           }
         ]
@@ -55,9 +54,6 @@ let config = devMode => ({
       },
       canPrint: true
     }),
-    new HtmlWebpackPlugin({
-      title: "New App"
-    })
   ]
 });
 
